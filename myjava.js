@@ -34,13 +34,13 @@ var questionshown = {
     //answers
 
     answers: [
-        [" 1 , 2 , 3 , 4 " , "(1 , 2 , 3 , 4)" , "Right Answer:[1 , 2 , 3 , 4]","0 , 2 , 4 , 6"],
+        [" 1 , 2 , 3 , 4 " , "(1 , 2 , 3 , 4)" , "Right Answer:[1 , 2 , 3 , 4]", "0 , 2 , 4 , 6"],
         
         ["Java-script" , "CSS Files" , "Right Answer:HTML Files" , "Coffee"],
         
         ["Right Answer:Header" , "Footer" , "Div" , "In your Java-script"],
         
-        [":Var-list" , ":Uni-Var" , ":groot" , "Right Answer:root"],
+        [":Var-list" , ":Uni-Var" , ":groot" , "Right Answer: :root"],
 
         ["1" , "Right Answer:0" , "Numero Uno" , "10"]
 
@@ -112,7 +112,7 @@ function showanswers(questionnumber) {
 
 
         if (questionshown.answers[questionnumber][answernumber].includes("Right Answer:")){
-            tempstr = questionshown.answers[questionnumber][answernumber].substring(8, questionshown.answers[questionnumber][answernumber].length);
+            tempstr = questionshown.answers[questionnumber][answernumber].substring(13, questionshown.answers[questionnumber][answernumber].length);
 
             currentanswerchoices.id = "Right Answer";
         }
