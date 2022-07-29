@@ -182,7 +182,7 @@ function checkAnswer(event) {
         console.log(event.target)
 
 
-        if (!event.target.id.includes('Right Answer:')){ 
+        if (!event.target.id.includes('Right Answer')){ 
 
             timeremaining -= 10; 
 
