@@ -16,7 +16,7 @@ var gameover = true;
 
 
 
-//Questions
+//Questions and asnwer array
 var questionshown = {
     questions: [
         "What is an example of an Array?",
@@ -47,6 +47,7 @@ var questionshown = {
     ]
 }
 
+//Function that initializes everything based off of the click listener
 function makeitwork() {
     startbtn.addEventListener("click", startgame);
     answerbtns.addEventListener("click", checkAnswer);
@@ -59,6 +60,7 @@ function makeitwork() {
 
     return;
 }
+
 
 function Game() {
     timeremaining = timerstart;
@@ -76,6 +78,7 @@ function Game() {
     return;
 }
 
+//starts the countdown of the timer and displays it
 function begincountdown() {
     console.log(Timer)
     
@@ -97,12 +100,14 @@ function begincountdown() {
     return;
 }
 
+//displays the current question and answers basedd off of the index location
 function showquestions(questionnumber) {
     questiondisplay.textContent = questionshown.questions[questionnumber];
 
     showanswers(questionnumber);
 }
 
+//shows the asnwer choices that match the index location of the current question
 function showanswers(questionnumber) {
     answerbtns.innerHTML = "";
 
@@ -110,7 +115,7 @@ function showanswers(questionnumber) {
         var currentanswerchoices = document.createElement("li");
         var tempstr = questionshown.answers[questionnumber][answernumber];
 
-
+        //recognizes the answer that i have given the ID of "Right Answer" as the correct answer
         if (questionshown.answers[questionnumber][answernumber].includes("Right Answer:")){
             tempstr = questionshown.answers[questionnumber][answernumber].substring(13, questionshown.answers[questionnumber][answernumber].length);
 
@@ -124,7 +129,7 @@ function showanswers(questionnumber) {
     return;
 }
 
-
+//starts the quiz and displays the questions,answers,and timer
 function startgame() {
     gameover = false;
     questionnumber = 0;
@@ -140,6 +145,7 @@ function startgame() {
     return;
 }
 
+//moves to the next set of question and answers in the array
 function nextQuestion() {
     questionnumber++; 
 
@@ -153,7 +159,7 @@ function nextQuestion() {
 
     return;
 }
-
+//ends the quiz and shows the users score, and allows them to input a name
 function endgame() { 
 
     gameover = true; 
@@ -176,7 +182,7 @@ function endgame() {
 }
 
 
-
+//checks for if the correct answer is chosen, else subtracts 10 seconds from the timer
 function checkAnswer(event) {
     if (event.target = answerbtns){ 
         console.log(event.target)
@@ -195,6 +201,7 @@ function checkAnswer(event) {
     return;
 }
 
+//saves the users' score and name in local storage
 function savehighscores() {
     var highscoreTextbox = document.querySelector(`input`); 
 
@@ -249,7 +256,7 @@ function savehighscores() {
 
     return;
 }
-
+//lists the current highscores listed in local storage as an ordered list
 function listhighscores() {
     
     questiondisplay.style.display = `none`; 
@@ -294,7 +301,7 @@ function listhighscores() {
 
     return;
 }
-
+//clears the local storage
 function clearHighscores() {
     document.querySelector(`ol`).innerHTML = ``; 
 
